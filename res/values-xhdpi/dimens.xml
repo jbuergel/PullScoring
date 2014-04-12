@@ -1,0 +1,5 @@
+<resources>
+	<dimen name="standard_button_height">45sp</dimen>
+	<dimen name="standard_button_text_size">22sp</dimen>
+	<dimen name="scoring_text_size">16sp</dimen>
+</resources>

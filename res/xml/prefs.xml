@@ -1,0 +1,14 @@
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory
+			android:title="@string/name_category_title">
+		<EditTextPreference
+			android:summary="@string/team_name_summary"
+			android:defaultValue="@string/default_team_name_0"
+			android:key="@string/team_name_key_0"/>
+		<EditTextPreference
+			android:summary="@string/team_name_summary"
+			android:defaultValue="@string/default_team_name_1"
+			android:key="@string/team_name_key_1"/>
+	</PreferenceCategory>
+</PreferenceScreen>

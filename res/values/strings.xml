@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">PULL! Scoring</string>
+	<string name="about_body">
+<![CDATA[
+<i>PULL!</i> is by <a href=\"http://cheveedodd.com\">Chevee Dodd</a><br />
+Twitter: <a href=\"http://twitter.com/cheveedodd\">@cheveedodd</a><br />
+Facebook: <a href=\"http://facebook.com/chevee.dodd\">Chevee Dodd</a><br />
+<br />
+Scoring App by <a href=\"http://houseofslack.com\">Joshua Beurgel</a><br />
+Twitter: <a href=\"http://twitter.com/joshuabuergel\">@joshuabuergel</a><br />
+More stuff: <a href=\"https://play.google.com/store/search?q=joshua%20buergel&c=apps\">Play Store</a>
+<br />
+This is not a complete game. This is a scoring app for the card game <i>PULL!</i> from Chevee Dodd, LLC. To play the game you will need a complete set of <i>PULL!</i> cards avaialable from <a href=\"http://cheveedodd.com/pull/\">http://cheveedodd.com/pull/</a>
+<br /><br />
+<i>PULL! - A Trap Shooting Card Game</i> is Copyright &#169; 2014 Chevee Dodd, LLC. All rights reserved.
+]]>
+	</string>
+	<string name="button_new_game">New Game</string>
+	<string name="button_resume">Resume</string>
+	<string name="button_about">About</string>
+	<string name="button_rules">Rules</string>
+	<string name="rules_header">PULL! (v 1.6b)</string>
+	<string name="rules_body">
+<![CDATA[
+<b>PULL! - Rules (v1.6)</b>
+<br /><br />
+<b>Overview:</b>
+<br />
+<i>PULL!</i> is a card game for 2 teams of 2 players. A game is a series of hands, each made up of five rounds. Each round, two Target cards are flipped and you play a Shot card on each. You must follow suit with the first Shot card payed each round. After all players have played two shot cards, determine who wins each Target and begin a new round.
+<br /><br />
+<b>Playing a Hand:</b>
+<br />
+Pick a player to be the dealer. That player deals the first hand and the deal passes to the left.
+<br />
+On your turn to deal:
+<blockquote>* Shuffle all the Shot cards together and deal them one at a time, face down, in a clockwise fashion until each player has 10 cards in their hand. Set all unused cards aside face-down. They will not be used this hand.</blockquote>
+<blockquote>* Shuffle all the Target cards together face down and throw (flip over) the top two Targets into the center of the table. Give the remaining Targets to the player on the left.</blockquote>
+<br />
+The player with the Target deck plays the first card, and play passes to the left. The first Shot you play each round must match the suit of the Target you play on. If you are unable to match suit on either Target, you may play any card. After all players have played a single Shot card, choose a second card to play and place it face down in front of you. When all players have selected their second Shot, reveal them simultaneously and place your Shot on the second Target. You do not have to match suit with your second Shot. You may only play one Shot card per Target.
+<br /><br />
+After all Shot cards have been played, the team who played the highest value Shot wins the Target, and earns their team the points for that Target. A Shot which matches the Target\'s suit will win a tie for highest value. In the event of a tie between teams where a matching Shot is not played, neither team scores the Target and it is discarded.
+<br />
+<blockquote><b>Distracted -</b> A Shot with a value of 1 indicates that your attempt is so awful, it causes the other shooters to be \"distracted.\"  When a Distraction is played on a target, all 8-value Shots played on the same Target are cancelled. The target is won by the Shot of the next highest value. </blockquote>
+<br />
+Keep your team\'s Target cards in a score pile and discard all played Shot cards. Your team scores a Double if you took both Targets this round; rotate  those cards sideways in your score pile.
+<br /><br />
+The player with the Target Deck flips over two new Targets and passes the deck to the player on their left who begins the round by playing the first Shot. Play continues in this fashion for a total of five rounds, points are then recorded, and a new hand begins.
+<br /><br />
+<b>Scoring the Hand:</b>
+<br />
+After the fifth round is completed, total the point values of all Targets scored by your team. Targets that are rotated sideways (because your team scored a Double) score the value in white. Record both team\'s scores. Collect all the Shot and Target cards and pass them to the new dealer who begins the next hand.
+<br /><br />
+<blockquote><b>Fouls:</b>
+In addition to points, you need to record how many Fouls each team shoots. All animals scored are considered a Foul regardless of whether you took negative points or not. Each time your team gains a 5th Foul (5, 10, 15...), lose 20 points!</blockquote>
+<b>Game End:</b>
+<br />
+Continue playing hands in this fashion (with the dealer passing to the left each hand) until a team achieves a set number of points. If you want to play a shorter game, play to 200 or for a longer game you may wish to play to 400 or more. Alternately, you may play a fixed number of hands or until everyone agrees to stop.
+<br /><br />
+Copyright &#169; 2014 Chevee Dodd, LLC. All rights reserved.
+]]>
+	</string>
+	<string name="name_category_title">Team Names</string>
+	<string name="team_name_summary">Tap to set team name</string>
+	<string name="team_name_title">%1$s</string>
+	<string name="default_team_name_0">Team 1</string>
+	<string name="team_name_key_0">team_0_key</string>
+	<string name="default_team_name_1">Team 2</string>
+	<string name="team_name_key_1">team_1_key</string>
+	<string name="description_splash">Splash image</string>
+	<string name="description_logo">Logo</string>
+	<string name="go">GO</string>
+	<string name="undo">Undo</string>
+	<string name="label_0">0</string>
+	<string name="label_1">1</string>
+	<string name="label_2">2</string>
+	<string name="label_3">3</string>
+	<string name="label_4">4</string>
+	<string name="label_5">5</string>
+	<string name="label_6">6</string>
+	<string name="label_7">7</string>
+	<string name="label_8">8</string>
+	<string name="label_9">9</string>
+	<string name="label_minus">\u2014</string>
+	<string name="label_delete">\u232B</string>
+	<string name="description_delete">Delete</string>
+	<string name="total_score">Total: %1$d</string>
+	<string name="undo_confirm_message">Really undo the last scores?</string>
+	<string name="ok">OK</string>
+	<string name="cancel">Cancel</string>
+</resources>

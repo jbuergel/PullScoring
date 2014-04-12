@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@android:color/black"
+	tools:context=".Rules" >
+	
+	<TextView 
+		android:id="@+id/header"
+		style="@style/AppHeader"
+		android:text="@string/rules_header"
+		/>
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@id/header">
+		<TextView 
+			android:id="@+id/body"
+			style="@style/AppBody"
+			/>
+	</ScrollView>
+</RelativeLayout>

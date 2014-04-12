@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".Splash" >
+	
+	<ImageView 
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:scaleType="centerCrop"
+		android:contentDescription="@string/description_splash"
+		android:src="@drawable/splash"
+		/>
+	
+	<ImageView 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:scaleType="centerInside"
+		android:src="@drawable/logo"
+		android:layout_alignParentTop="true"
+		android:layout_centerHorizontal="true"
+		android:layout_margin="@dimen/splash_logo_margin"
+		android:contentDescription="@string/description_logo"
+		android:id="@+id/logo"
+		/>
+	
+	<Button
+		style="@style/SplashButton"
+		android:text="@string/button_rules"
+		android:onClick="buttonRules"
+		android:id="@+id/button_rules"
+		android:layout_marginBottom="@dimen/standard_margin"
+		android:layout_alignParentBottom="true"
+	/>
+		
+	<Button
+		style="@style/SplashButton"
+		android:text="@string/button_about"
+		android:onClick="buttonAbout"
+		android:id="@+id/button_about"
+		android:layout_above="@id/button_rules"
+	/>
+		
+	<Button
+		style="@style/SplashButton"
+		android:text="@string/button_resume"
+		android:onClick="buttonResume"
+		android:id="@+id/button_resume"
+		android:layout_above="@id/button_about"
+	/>
+	
+	<Button
+		style="@style/SplashButton"
+		android:text="@string/button_new_game"
+		android:onClick="buttonNewGame"
+		android:id="@+id/button_new_game"
+		android:layout_above="@id/button_resume"
+	/>
+</RelativeLayout>
