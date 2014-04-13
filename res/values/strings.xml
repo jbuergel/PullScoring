@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 The MIT License (MIT)
 
@@ -21,8 +22,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 -->
-
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">PULL! Scoring</string>
 	<string name="about_body">

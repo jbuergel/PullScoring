@@ -37,6 +37,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -61,7 +62,7 @@ public class Scoring extends Activity {
 		setContentView(R.layout.activity_scoring);
 		// check if we're resetting the scores
 		if (getIntent().getBooleanExtra(RESET_SCORES_FLAG, false)) {
-			SharedPreferences.Editor edit = getPreferences(MODE_PRIVATE).edit();
+			SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this).edit();
 			edit.remove(TEAM_0_SCORES_KEY);
 			edit.remove(TEAM_1_SCORES_KEY);
 			edit.commit();
@@ -74,7 +75,7 @@ public class Scoring extends Activity {
 	protected void onResume() {
 		super.onResume();
 		// put the team names into the appropriate slots - these can be modified in preferences by the about screen
-		SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		TextView textView = (TextView) findViewById(R.id.team_0_name);
 		textView.setText(prefs.getString(getString(R.string.team_name_key_0), getString(R.string.default_team_name_0)));
 		textView = (TextView) findViewById(R.id.team_1_name);
@@ -107,7 +108,7 @@ public class Scoring extends Activity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		SharedPreferences.Editor edit = getPreferences(MODE_PRIVATE).edit();
+		SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this).edit();
 		ObjectMapper objectMapper = new ObjectMapper();
 		edit.putString(TEAM_0_SCORES_KEY, listToJson(objectMapper, team0Scores));
 		edit.putString(TEAM_1_SCORES_KEY, listToJson(objectMapper, team1Scores));
