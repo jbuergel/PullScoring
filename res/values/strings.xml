@@ -33,7 +33,10 @@ Facebook: <a href=\"http://facebook.com/chevee.dodd\">Chevee Dodd</a><br />
 Scoring App by <a href=\"http://houseofslack.com\">Joshua Beurgel</a><br />
 Twitter: <a href=\"http://twitter.com/joshuabuergel\">@joshuabuergel</a><br />
 More stuff: <a href=\"https://play.google.com/store/search?q=joshua%20buergel&c=apps\">Play Store</a>
-<br />
+]]>
+	</string>
+	<string name="about_footer">
+<![CDATA[
 This is not a complete game. This is a scoring app for the card game <i>PULL!</i> from Chevee Dodd, LLC. To play the game you will need a complete set of <i>PULL!</i> cards avaialable from <a href=\"http://cheveedodd.com/pull/\">http://cheveedodd.com/pull/</a>
 <br /><br />
 <i>PULL! - A Trap Shooting Card Game</i> is Copyright &#169; 2014 Chevee Dodd, LLC. All rights reserved.
@@ -43,11 +46,9 @@ This is not a complete game. This is a scoring app for the card game <i>PULL!</i
 	<string name="button_resume">Resume</string>
 	<string name="button_about">About</string>
 	<string name="button_rules">Rules</string>
-	<string name="rules_header">PULL! (v 1.6b)</string>
+	<string name="rules_header">PULL! (v 1.6)</string>
 	<string name="rules_body">
 <![CDATA[
-<b>PULL! - Rules (v1.6)</b>
-<br /><br />
 <b>Overview:</b>
 <br />
 <i>PULL!</i> is a card game for 2 teams of 2 players. A game is a series of hands, each made up of five rounds. Each round, two Target cards are flipped and you play a Shot card on each. You must follow suit with the first Shot card payed each round. After all players have played two shot cards, determine who wins each Target and begin a new round.

@@ -39,8 +39,14 @@ public class About extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_about);
-		TextView textView = (TextView) findViewById(R.id.about_text);
-		CharSequence cs = Html.fromHtml(getString(R.string.about_body));
+		setHtmlText(R.id.about_body, R.string.about_body);
+		setHtmlText(R.id.about_footer, R.string.about_footer);
+		
+	}
+	
+	private void setHtmlText(int textViewId, int stringId) {
+		TextView textView = (TextView) findViewById(textViewId);
+		CharSequence cs = Html.fromHtml(getString(stringId));
 		textView.setText(cs);
 		textView.setMovementMethod(LinkMovementMethod.getInstance());
 	}

@@ -125,4 +125,9 @@ SOFTWARE.
 		<item name="android:paddingLeft">@dimen/scrollbar_padding</item>
 		<item name="android:paddingRight">@dimen/scrollbar_padding</item>
 	</style>
+	<style name="Separator">
+		<item name="android:layout_height">@dimen/separator_height</item>
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:background">@android:color/white</item>
+	</style>
 </resources>

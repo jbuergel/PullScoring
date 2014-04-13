@@ -39,4 +39,5 @@ SOFTWARE.
 	<dimen name="foul_image_size">50dp</dimen>
 	<dimen name="input_border_width">3dp</dimen>
 	<dimen name="scrollbar_padding">10dp</dimen>
+	<dimen name="separator_height">1dp</dimen>
 </resources>
