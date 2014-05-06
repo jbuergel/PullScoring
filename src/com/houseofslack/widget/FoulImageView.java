@@ -68,4 +68,9 @@ public class FoulImageView extends ImageView {
 		mIsFoul = !mIsFoul;
 		setFoulDrawable();
 	}
+	
+	public void setFoul(boolean newFoul) {
+		mIsFoul = newFoul;
+		setFoulDrawable();
+	}
 }

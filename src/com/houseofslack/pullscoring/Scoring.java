@@ -49,9 +49,13 @@ public class Scoring extends Activity {
 	public static final String RESET_SCORES_FLAG = "resetScoresFlag";
 	private static final String TEAM_0_SCORES_KEY = "team0ScoresKey";
 	private static final String TEAM_1_SCORES_KEY = "team1ScoresKey";
+	private static final String TEAM_0_FOULS_KEY = "team0FoulsKey";
+	private static final String TEAM_1_FOULS_KEY = "team1FoulsKey";
 	private static final int PENALTY_SCORE = -20;
 	List<Integer> team0Scores = new LinkedList<Integer>();
 	List<Integer> team1Scores = new LinkedList<Integer>();
+	String mLeftTeamName = null;
+	String mRightTeamName = null;
 	int mCurrentFocus = R.id.left_score_input;
 	int[] mLeftFouls = new int[]{R.id.team_0_foul_0, R.id.team_0_foul_1, R.id.team_0_foul_2, R.id.team_0_foul_3, R.id.team_0_foul_4};
 	int[] mRightFouls = new int[]{R.id.team_1_foul_0, R.id.team_1_foul_1, R.id.team_1_foul_2, R.id.team_1_foul_3, R.id.team_1_foul_4};
@@ -65,6 +69,8 @@ public class Scoring extends Activity {
 			SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this).edit();
 			edit.remove(TEAM_0_SCORES_KEY);
 			edit.remove(TEAM_1_SCORES_KEY);
+			edit.remove(TEAM_0_FOULS_KEY);
+			edit.remove(TEAM_1_FOULS_KEY);
 			edit.commit();
 			setIntent(new Intent(this, Scoring.class));
 		}
@@ -76,18 +82,19 @@ public class Scoring extends Activity {
 		super.onResume();
 		// put the team names into the appropriate slots - these can be modified in preferences by the about screen
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		TextView textView = (TextView) findViewById(R.id.team_0_name);
-		textView.setText(prefs.getString(getString(R.string.team_name_key_0), getString(R.string.default_team_name_0)));
-		textView = (TextView) findViewById(R.id.team_1_name);
-		textView.setText(prefs.getString(getString(R.string.team_name_key_1), getString(R.string.default_team_name_1)));
+		mLeftTeamName = prefs.getString(getString(R.string.team_name_key_0), getString(R.string.default_team_name_0));
+		mRightTeamName = prefs.getString(getString(R.string.team_name_key_1), getString(R.string.default_team_name_1));
 		// fetch our scores from the preferences
-		if ((prefs.getString(TEAM_0_SCORES_KEY, null) != null) && (prefs.getString(TEAM_1_SCORES_KEY, null) != null)) {
+		if ((prefs.getString(TEAM_0_SCORES_KEY, null) != null) && (prefs.getString(TEAM_1_SCORES_KEY, null) != null) &&
+			(prefs.getString(TEAM_0_FOULS_KEY, null) != null) && (prefs.getString(TEAM_1_FOULS_KEY, null) != null)) {
 			ObjectMapper objectMapper = new ObjectMapper();
 			try {
 				team0Scores = objectMapper.readValue(prefs.getString(TEAM_0_SCORES_KEY, null), List.class);
 				team1Scores = objectMapper.readValue(prefs.getString(TEAM_1_SCORES_KEY, null), List.class);
+				arrayToCheckBoxes(mLeftFouls, objectMapper.readValue(prefs.getString(TEAM_0_FOULS_KEY, null), boolean[].class));
+				arrayToCheckBoxes(mRightFouls, objectMapper.readValue(prefs.getString(TEAM_1_FOULS_KEY, null), boolean[].class));
 			} catch (Exception e) {
-			}			
+			}
 		}
 		
 		// draw the scores
@@ -96,7 +103,7 @@ public class Scoring extends Activity {
 		clickLeftInput(null);
 	}
 	
-	private String listToJson(ObjectMapper objectMapper, List<Integer> list) {
+	private String objectToJson(ObjectMapper objectMapper, Object list) {
 		StringWriter writer = new StringWriter();
 		try {
 			objectMapper.writeValue(writer, list);
@@ -105,13 +112,31 @@ public class Scoring extends Activity {
 		return writer.toString();
 	}
 	
+	private boolean[] checkBoxesToArray(int[] ids) {
+		boolean[] values = new boolean[ids.length];
+		for (int ii = 0; ii < ids.length; ii++) {
+			FoulImageView foulImageView = (FoulImageView) findViewById(ids[ii]);
+			values[ii] = foulImageView.isFoul();
+		}
+		return values;
+	}
+	
+	private void arrayToCheckBoxes(int[] ids, boolean[] values) {
+		for (int ii = 0; ii < ids.length; ii++) {
+			FoulImageView foulImageView = (FoulImageView) findViewById(ids[ii]);
+			foulImageView.setFoul(values[ii]);
+		}
+	}
+	
 	@Override
 	protected void onPause() {
 		super.onPause();
 		SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this).edit();
 		ObjectMapper objectMapper = new ObjectMapper();
-		edit.putString(TEAM_0_SCORES_KEY, listToJson(objectMapper, team0Scores));
-		edit.putString(TEAM_1_SCORES_KEY, listToJson(objectMapper, team1Scores));
+		edit.putString(TEAM_0_SCORES_KEY, objectToJson(objectMapper, team0Scores));
+		edit.putString(TEAM_1_SCORES_KEY, objectToJson(objectMapper, team1Scores));
+		edit.putString(TEAM_0_FOULS_KEY, objectToJson(objectMapper, checkBoxesToArray(mLeftFouls)));
+		edit.putString(TEAM_1_FOULS_KEY, objectToJson(objectMapper, checkBoxesToArray(mRightFouls)));
 		edit.commit();
 	}
 	
@@ -149,7 +174,7 @@ public class Scoring extends Activity {
 	// puts the scores into one of the linear layouts in the app
 	// the scores passed in are the individual scores from the hands, not totals, so we have to run through them
 	// as we go along
-	private void redrawOneSetOfScores(LinearLayout layout, List<Integer> scores, int scoreLayoutId, int scrollLayoutId, int totalScoreId) {
+	private void redrawOneSetOfScores(LinearLayout layout, List<Integer> scores, int scoreLayoutId, int scrollLayoutId, String teamName, int teamAndScoreId) {
 		LayoutInflater inflater = getLayoutInflater();
 		layout.removeAllViews();
 		int totalScore = 0;
@@ -159,8 +184,8 @@ public class Scoring extends Activity {
 			textView.setText(String.valueOf(score));
 			layout.addView(textView);
 		}
-		TextView textView = (TextView) findViewById(totalScoreId);
-		textView.setText(getString(R.string.total_score, totalScore));
+		TextView textView = (TextView) findViewById(teamAndScoreId);
+		textView.setText(getString(R.string.total_score, teamName, totalScore));
 		// set the scroll view to the bottom of the display
 		final ScrollView scrollView = (ScrollView) findViewById(scrollLayoutId);
 		scrollView.post(new Runnable() {
@@ -175,8 +200,8 @@ public class Scoring extends Activity {
 	// note that a 5-foul set is considered a sepaarate "score" for these purposes, allowing
 	// the user to undo a 5-foul score if necessary
 	private void redrawScores() {
-		redrawOneSetOfScores((LinearLayout) findViewById(R.id.team_0_scores), team0Scores, R.layout.single_score_left, R.id.team_0_scroll, R.id.team_0_total);
-		redrawOneSetOfScores((LinearLayout) findViewById(R.id.team_1_scores), team1Scores, R.layout.single_score_right, R.id.team_1_scroll, R.id.team_1_total);
+		redrawOneSetOfScores((LinearLayout) findViewById(R.id.team_0_scores), team0Scores, R.layout.single_score_left, R.id.team_0_scroll, mLeftTeamName, R.id.team_0_name_and_score);
+		redrawOneSetOfScores((LinearLayout) findViewById(R.id.team_1_scores), team1Scores, R.layout.single_score_right, R.id.team_1_scroll, mRightTeamName, R.id.team_1_name_and_score);
 	}
 	
 	// do not change the name of this method without updating the XML

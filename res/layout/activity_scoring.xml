@@ -143,10 +143,7 @@ SOFTWARE.
 			style="@style/HalfContainer">
 			<TextView 
 				style="@style/TeamNameAndScore"
-				android:id="@+id/team_0_name"/>
-			<TextView 
-				style="@style/TeamNameAndScore"
-				android:id="@+id/team_0_total"/>
+				android:id="@+id/team_0_name_and_score"/>
 			<!-- This container is for the fouls and scores, and we'll again chop it in half -->
 			<LinearLayout 
 				android:layout_width="match_parent"
@@ -192,10 +189,7 @@ SOFTWARE.
 			style="@style/HalfContainer">
 			<TextView 
 				style="@style/TeamNameAndScore"
-				android:id="@+id/team_1_name"/>
-			<TextView 
-				style="@style/TeamNameAndScore"
-				android:id="@+id/team_1_total"/>
+				android:id="@+id/team_1_name_and_score"/>
 			<!-- This container is for the fouls and scores, and we'll again chop it in half -->
 			<LinearLayout 
 				android:layout_width="match_parent"

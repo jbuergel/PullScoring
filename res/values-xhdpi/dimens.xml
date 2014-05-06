@@ -25,5 +25,6 @@ SOFTWARE.
 <resources>
 	<dimen name="standard_button_height">45sp</dimen>
 	<dimen name="standard_button_text_size">22sp</dimen>
-	<dimen name="scoring_text_size">16sp</dimen>
+	<dimen name="scoring_text_size">18sp</dimen>
+	<dimen name="scoring_total_text_size">24sp</dimen>
 </resources>
