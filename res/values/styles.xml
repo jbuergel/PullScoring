@@ -100,6 +100,7 @@ SOFTWARE.
 		<item name="android:layout_gravity">center_horizontal</item>
 		<item name="android:singleLine">true</item>
 		<item name="android:ellipsize">middle</item>
+		<item name="android:layout_margin">@dimen/small_margin</item>
 		<item name="android:textSize">@dimen/scoring_total_text_size</item>
 	</style>
 	<style name="Score">
