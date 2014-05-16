@@ -126,7 +126,7 @@ SOFTWARE.
 				style="@style/ScoreInputButton"
 				android:onClick="clickDelete"
 				android:contentDescription="@string/description_delete"
-				android:scaleType="centerCrop"
+				android:scaleType="centerInside"
 				android:src="@drawable/delete_icon"
 				android:id="@+id/delete"/>
 		</LinearLayout>
